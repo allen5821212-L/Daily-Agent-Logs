@@ -4,17 +4,23 @@
 <meta charset="UTF-8">
 <title>AI 代理人執行日誌</title>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/lib/themes/vue.css">
+<style>
+.sync-bar {background:#1a1a1a;color:#FFB900;padding:8px 16px;font-size:12px;font-family:monospace;border-bottom:1px solid #FFB900;display:flex;justify-content:space-between;align-items:center}
+.sync-bar .time{color:#00FF00}
+.sync-bar .link a{color:#3498db;text-decoration:none}
+</style>
 </head>
 <body>
+<div class="sync-bar">
+<span>🔄 Last Sync: <span class="time" id="lastSync">--</span></span>
+<span class="link"><a href="https://allen5821212-l.github.io/AllenL-Research-House/">📊 投資儀表板</a></span>
+</div>
 <div id="app">日誌載入中...</div>
 <script>
-window.$docsify = {
-name: 'Agent Operations Log',
-repo: '',
-loadSidebar: true,
-subMaxLevel: 2,
-homepage: 'README.md'
-}
+function updateSyncTime(){document.getElementById('lastSync').textContent=new Date().toLocaleString('zh-TW');}
+setInterval(updateSyncTime,10000);
+setTimeout(updateSyncTime,1000);
+window.$docsify={name:'Agent Operations Log',repo:'',loadSidebar:true,subMaxLevel:2,homepage:'README.md'}
 </script>
 <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
 </body>
